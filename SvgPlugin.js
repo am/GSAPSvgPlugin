@@ -117,10 +117,10 @@
 			//called when the tween renders for the first time. This is where initial values should be recorded and any setup routines should run.
 			init: function(target, value, tween) {
 
-				// Uses D3 as a selector, but could just as easily be jQuery.
+				// Uses TweenLite.selector as a selector, but it fails if it is not jQuery.
 				// We also create a link to the underlying SVG node to use its methods.
-				if (!d3) return false;
-				target = d3.select(target);
+				if (!TweenLite.selector) return false;
+				target = TweenLite.selector(target);
 				target.svg = target[0][0];
 
 				this._target = target;
